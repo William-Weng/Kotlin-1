@@ -6,6 +6,6 @@
 ## Kotlin_FindViewById - FindViewById的四種方法
 ![Kotlin_FindViewById - FindViewById的四種方法](./_Gif_/Kotlin_FindViewById.jpg)
 
-## RecyclerView_Demo - 可reuse的RecyclerView
-![RecyclerView_Demo - 可reuse的RecyclerView](./_Gif_/RecyclerView_Demo.gif)
+## RecyclerView - 可reuse的RecyclerView
+![RecyclerView_Demo - 可reuse的RecyclerView](./_Gif_/RecyclerView.gif)
 
