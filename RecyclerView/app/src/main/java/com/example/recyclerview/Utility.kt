@@ -1,5 +1,10 @@
 package com.example.recyclerview
 
+import android.content.Context
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+
 object Utility {
 
     /// 空白的Header
@@ -22,20 +27,13 @@ object Utility {
         return modelArray
     }
 
-    /// 測試用假資料 (Cell)
-    fun demoModelData(count: Int) : ArrayList<CellModel> {
+    /// XML => View
+    fun cellViewMaker(cellType: CellType, context: Context, parent: ViewGroup) : View {
 
-        var modelArray = ArrayList<CellModel>()
-
-        for (index in 0..count) {
-
-            var model = CellModel()
-            model.name = "William - $index"
-            model.region = "Earth - $index"
-
-            modelArray.add(model)
+        return when(cellType) {
+            CellType.Header -> { LayoutInflater.from(context).inflate(R.layout.recyclerview_header, parent, false) }
+            CellType.Section -> { LayoutInflater.from(context).inflate(R.layout.recyclerview_section, parent, false) }
+            CellType.Cell -> { LayoutInflater.from(context).inflate(R.layout.recyclerview_cell, parent, false) }
         }
-
-        return modelArray
     }
 }

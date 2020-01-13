@@ -14,30 +14,20 @@ interface BaseModel {
     val cellType: CellType
 }
 
-// MARK: - HeaderModel (Header的Model)
+// MARK: - HeaderModel (內容的Model)
 class HeaderModel : BaseModel {
 
     override val cellType: CellType
         get() = CellType.Header
 }
 
-// MARK: - SectionModel (Section的Model)
+// MARK: - SectionModel (內容的Model)
 class SectionModel : BaseModel {
 
     override val cellType: CellType
         get() = CellType.Section
 
     var title: String? = null
-}
-
-// MARK: - CellModel (內容的Model)
-class CellModel : BaseModel {
-
-    override val cellType: CellType
-        get() { return CellType.Cell }
-
-    var name: String? = null
-    var region: String? = null
 }
 
 // MARK: - UINameModel (內容的Model)

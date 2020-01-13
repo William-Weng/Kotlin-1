@@ -128,7 +128,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
-    /// [真的] RecyclerView上的資料 (Header + Sections + Cells)
+    /// [Web + 假資料] RecyclerView上的資料 (Header + Sections +Cells)
     private fun webModelAdapterMaker(models: ArrayList<UINameModel>) : ModelAdapter {
 
         val demoSectionData = Utility.demoSectionData(5)
@@ -140,24 +140,6 @@ class MainActivity : AppCompatActivity() {
         for (sectionData in demoSectionData) {
             modelArrayList.add(sectionData)
             modelArrayList.addAll(models)
-        }
-
-        return ModelAdapter(this, modelArrayList)
-    }
-
-    /// [假的] RecyclerView上的資料 (Header + Sections + Cells)
-    private fun demoModelAdapterMaker(count: Int) : ModelAdapter {
-
-        val demoModelArray = Utility.demoModelData(count)
-        val demoSectionData = Utility.demoSectionData(5)
-
-        var modelArrayList = ArrayList<BaseModel>()
-
-        modelArrayList.add(headerModelData())
-
-        for (sectionData in demoSectionData) {
-            modelArrayList.add(sectionData)
-            modelArrayList.addAll(demoModelArray)
         }
 
         return ModelAdapter(this, modelArrayList)
@@ -178,14 +160,8 @@ class MainActivity : AppCompatActivity() {
         val newCall = OkHttpClient().newCall(request)
 
         newCall.enqueue(object : Callback {
-
-            override fun onFailure(call: Call, e: IOException) {
-                callback(null)
-            }
-
-            override fun onResponse(call: Call, response: Response) {
-                callback(response.body)
-            }
+            override fun onFailure(call: Call, e: IOException) { callback(null) }
+            override fun onResponse(call: Call, response: Response) { callback(response.body) }
         })
     }
 }
